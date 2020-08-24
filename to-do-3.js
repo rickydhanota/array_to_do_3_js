@@ -35,5 +35,13 @@ function secondLargest(arr){
     }
     return temp;
 }
-console.log(secondLargest([42,1,4,Math.PI, 7]));
+// console.log(secondLargest([42,1,4,Math.PI, 7]));
+
+//Return the element that is N-from-array’s-end. Given ([5,2,3,6,4,9,7],3), return 4. If the array is too short, return null.
+
+function fromArrayEnd(arr, val){
+    // console.log(arr[arr.length-val]);
+    return arr[arr.length-val];
+}
+console.log(fromArrayEnd([5,2,3,6,4,9,7], 3));
 
