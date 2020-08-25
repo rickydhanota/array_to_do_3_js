@@ -1,18 +1,20 @@
 //Implement removeNegatives() that accepts an array, removes negative values, and returns the same array (not a copy), preserving non-negatives’ order. As always, do not use built-in array functions.
 
 function removeNegatives(arr){
-    for (var i=arr.length-1; i>=0; i--){
+    for (var i=0; i<arr.length; i++){
         if(arr[i]<0){
-            arr[i] = arr[i+1];
-            if(arr[i+1]>0){
-                arr[i+1] = arr[i+2];
+            for (var j=i; j<arr.length-1; j++){
+                var temp = arr[j];//-1
+                arr[j] = arr[j+1];//2
+                arr[j+1] = temp;
             }
-            arr.length = arr.length-1;
+            arr.pop();
+            i--;
         }
     }
     return arr;
 }
-// console.log(removeNegatives([-1,2,-3,-4,5, -7, 8, -9]));
+console.log(removeNegatives([-1,2,-3,-4,5, -7, 8, -9]));//[2,-1...]
 
 //Return the second-largest element of an array. Given [42,1,4,Math.PI,7], return 7. If the array is too short, return null.
 
@@ -48,20 +50,23 @@ function fromArrayEnd(arr, val){
 //Liam has "N" number of Green Belt stickers for excellent Python projects. Given arr and N, return the Nth-largest element, where (N-1) elements are larger. Return null if needed.
 function Nth_largest(arr, N){
     for (var j=0; j<N; j++){
+        console.log(j, "j value");
+        var max = arr[0];
         var max_i = 0;
-        var max = 0;
         for (var i=0; i<arr.length; i++){
             if (arr[i]> max){
                 max_i = i;
                 max = arr[i];
+                console.log(arr[i], "here");
             }
         }
-        arr[max_i] = "Not the answer";
+        arr[max_i] = -100;
     }   
+    console.log(arr);
     return max;
 }
 
-console.log(Nth_largest([1,3,8,-1,-2,20,4,2,5,6], 3));
+// console.log(Nth_largest([-1,-3,-8,-1,-2,-20,-4,-2,-5,-6], 3));
 
 
 
