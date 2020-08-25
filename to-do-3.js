@@ -46,7 +46,22 @@ function fromArrayEnd(arr, val){
 // console.log(fromArrayEnd([5,2,3,6,4,9,7], 3));
 
 //Liam has "N" number of Green Belt stickers for excellent Python projects. Given arr and N, return the Nth-largest element, where (N-1) elements are larger. Return null if needed.
+function Nth_largest(arr, N){
+    for (var j=0; j<N; j++){
+        var max_i = 0;
+        var max = 0;
+        for (var i=0; i<arr.length; i++){
+            if (arr[i]> max){
+                max_i = i;
+                max = arr[i];
+            }
+        }
+        arr[max_i] = "Not the answer";
+    }   
+    return max;
+}
 
+console.log(Nth_largest([1,3,8,-1,-2,20,4,2,5,6], 3));
 
 
 
@@ -68,4 +83,4 @@ function buildingHeight(arr){
     }
     return newArr;
 }
-console.log(buildingHeight([1,-1,7,3]))//3,1,7
+// console.log(buildingHeight([1,-1,7,3]))
